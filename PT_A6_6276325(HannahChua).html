@@ -1,0 +1,70 @@
+<html>
+<button onclick="myFunctionStart()">Start Game</button>
+<button onclick="slideShow1()">End Game</button>
+<br/>
+
+<script>
+myvar = setInterval(getNo, 1000);
+var num;
+var myVar;
+var arrayNum;
+var counter =0;
+
+//globally defined
+
+function myFunctionStart() {
+    num = prompt("Please enter a number from 0 to 9", " "); //var num
+    if (num != null) {
+        document.getElementById("demo").innerHTML = num;
+    }
+}
+
+function getNo() { //no num and may contain same numbers
+    arrayNUM = []; //clear array then add values
+    var length = 3;
+    for (var i = 0; i < length; i++) 
+    {
+        arrayNUM.push(Math.floor(Math.random() * 10));
+    }
+    //while (arrayNUM[0] != arrayNUM[1] != arrayNUM[2]);
+    document.getElementById('d1').innerHTML = arrayNUM[0];
+    document.getElementById('d2').innerHTML = arrayNUM[1];
+    document.getElementById('d3').innerHTML = arrayNUM[2];
+}
+
+function counterCheck()
+{
+   if ((num == document.getElementById('d1').textContent)||(num == document.getElementById('d2').textContent)||(num == document.getElementById('d3').textContent))
+  {
+      counter++;
+  }
+  else 
+  {
+      counter--;
+  }
+      document.getElementById('counter').innerHTML = counter;
+}
+
+function slideShow1(){
+    clearInterval(myvar); //1s MUST PUT PARAM FOR MYFUNCTIONRAND()
+}
+
+//slideShow1();
+//document.getElementById('d1').addEventListener("click", checkCounter);
+</script>
+
+<body>
+    <p>Your chosen number is:</p>
+    <p id="demo" style="color:green"></p>
+    <p>Your score so far:</p>
+    <p id="counter" style="color:red"></p>
+
+    <p>Click on the number you previously entered in 1s!</p>
+    <span id="d1" style="color:red; font-size: 50pt" onclick="javascript:counterCheck();"></span><br/><br/> 
+    <span id="d2" style="color:blue; font-size: 50pt" onclick="javascript:counterCheck();"></span><br/><br/>
+    <span id="d3" style="color:orange; font-size: 50pt" onclick="javascript:counterCheck();"></span><br/><br/>
+    <span id="cout"></span>
+    
+</body>
+</html>
+
